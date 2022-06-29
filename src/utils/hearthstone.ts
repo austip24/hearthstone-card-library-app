@@ -1,6 +1,7 @@
 import { ICardSearchCriteria } from './types'
 
-const { BATTLE_NET_CLIENT_ID, BATTLE_NET_CLIENT_SECRET } = process.env
+const { BATTLENET_CLIENT_ID, BATTLENET_CLIENT_SECRET, BATTLENET_ISSUER } =
+  process.env
 const API_HOST = `https://us.api.blizzard.com`
 const DEFAULT_OPTIONS = {
   method: 'GET',
