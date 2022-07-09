@@ -1,6 +1,6 @@
-import { SessionProvider } from 'next-auth/react'
 import type { AppProps } from 'next/app'
 import React from 'react'
+import TokenProvider from '../components/providers/TokenProvider'
 import '../styles/globals.css'
 
 const App: React.FC<AppProps> = ({
@@ -8,9 +8,11 @@ const App: React.FC<AppProps> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <SessionProvider session={session}>
+    <TokenProvider>
+      {/* <SessionProvider session={session}> */}
       <Component {...pageProps} />
-    </SessionProvider>
+      {/* </SessionProvider> */}
+    </TokenProvider>
   )
 }
 

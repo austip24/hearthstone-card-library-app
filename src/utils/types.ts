@@ -99,14 +99,13 @@ export type Locale =
   | 'th_TH'
   | 'zh_CN'
   | 'zh_TW'
-export interface ICardSearchCriteria {
-  region: Region
+export interface CardSearchCriteria {
   locale?: Locale
   set?: string
   class?: string
-  manaCost?: number[] | string[]
-  attack?: number[] | string[]
-  health?: number[] | string[]
+  manaCost?: number | number[] | string | string[]
+  attack?: number | number[] | string | string[]
+  health?: number | number[] | string | string[]
   collectible?: string
   rarity?: CardRarity
   type?: CardType
@@ -117,5 +116,44 @@ export interface ICardSearchCriteria {
   spellSchool?: SpellSchool
   page?: number
   pageSize?: number
-  sort?: string[]
+  sort?: string | string[]
+}
+
+export interface CardSearchResponse {
+  cards: Card[]
+  cardCount: number
+  pageCount: number
+  page: number
+}
+
+export interface Card {
+  id: number
+  collectible: number
+  slug: string
+  classId: number
+  multiClassIds: number[]
+  spellSchoolId?: number
+  cardTypeId: number
+  cardSetId: number
+  rarityId: number
+  artistName: string
+  manaCost: number
+  name: string
+  text: string
+  image: string
+  imageGold: string
+  flavorText: string
+  cropImage: string
+  keywordIds?: number[]
+  duels?: Duels
+  health?: number
+  attack?: number
+  copyOfCardId?: number
+  minionTypeId?: number
+  childIds?: number[]
+}
+
+export interface Duels {
+  relevant: boolean
+  constructed: boolean
 }
